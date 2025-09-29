@@ -1,0 +1,44 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.example.frontend"
+    compileSdk = 36              // Updated to latest compile SDK
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    defaultConfig {
+        applicationId = "com.example.frontend"
+        minSdkVersion = flutter.minSdkVersion              // CameraAwesome requires 21+
+        targetSdk = 36
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug
+            // You can later add proper release signing here
+        }
+    }
+
+    // Optional: enable Jetifier if using legacy AndroidX libraries
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+flutter {
+    source = "../.."
+}
