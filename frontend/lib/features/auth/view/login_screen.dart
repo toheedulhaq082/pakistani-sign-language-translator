@@ -52,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: const Icon(
-                        Icons.handshake,
+                        Icons.sign_language,
                         size: 100,
                         color: Colors.white,
                       ),
@@ -67,7 +67,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  const Text('Email', style: TextStyle(fontWeight: FontWeight.bold)),
+                  const Text('Email',
+                      style: TextStyle(fontWeight: FontWeight.bold)),
                   TextField(
                     controller: emailController,
                     decoration: InputDecoration(
@@ -79,7 +80,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  const Text('Password', style: TextStyle(fontWeight: FontWeight.bold)),
+                  const Text('Password',
+                      style: TextStyle(fontWeight: FontWeight.bold)),
                   TextField(
                     controller: passwordController,
                     obscureText: true,
@@ -100,8 +102,12 @@ class _LoginScreenState extends State<LoginScreen> {
                             width: double.infinity,
                             child: ElevatedButton(
                               style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
-                                foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.black),
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.white),
                               ),
                               onPressed: () async {
                                 loading.value = true;

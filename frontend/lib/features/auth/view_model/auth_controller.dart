@@ -7,6 +7,7 @@ import 'package:frontend/features/detection/view_model/detection_controller.dart
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../../ip/view_model/ip_controller.dart';
+import 'package:frontend/features/auth/view/home_screen.dart';
 
 class AuthController extends GetxController {
   final IPController ipController = Get.find();
@@ -58,19 +59,19 @@ class AuthController extends GetxController {
       );
 
       if (response.statusCode == 200) {
-      // Save user info
-      user!.value = jsonDecode(response.body);
-  
-      Fluttertoast.showToast(
-        msg: "Signed in successfully.",
-        backgroundColor: Colors.green,
-      );
-  
-      // Register DetectionController here
-      Get.put(DetectionController());
-  
-      // Navigate
-      Get.offAll(() => DetectionScreen());
+        // Save user info
+        user!.value = jsonDecode(response.body);
+
+        Fluttertoast.showToast(
+          msg: "Signed in successfully.",
+          backgroundColor: Colors.green,
+        );
+
+        // Register DetectionController
+        Get.put(DetectionController());
+
+        // Navigate to Home Screen
+        Get.offAll(() => const HomeScreen());
       } else {
         var data = jsonDecode(response.body);
         Fluttertoast.showToast(

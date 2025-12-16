@@ -51,7 +51,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: const Icon(
-                        Icons.person_add,
+                        Icons.sign_language,
                         size: 100,
                         color: Colors.white,
                       ),
@@ -66,7 +66,8 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  const Text('Email', style: TextStyle(fontWeight: FontWeight.bold)),
+                  const Text('Email',
+                      style: TextStyle(fontWeight: FontWeight.bold)),
                   TextField(
                     controller: emailController,
                     decoration: InputDecoration(
@@ -78,7 +79,8 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  const Text('Password', style: TextStyle(fontWeight: FontWeight.bold)),
+                  const Text('Password',
+                      style: TextStyle(fontWeight: FontWeight.bold)),
                   TextField(
                     controller: passwordController,
                     obscureText: true,
@@ -91,7 +93,8 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  const Text('Confirm Password', style: TextStyle(fontWeight: FontWeight.bold)),
+                  const Text('Confirm Password',
+                      style: TextStyle(fontWeight: FontWeight.bold)),
                   TextField(
                     controller: confirmPasswordController,
                     obscureText: true,
@@ -112,15 +115,21 @@ class _SignupScreenState extends State<SignupScreen> {
                             width: double.infinity,
                             child: ElevatedButton(
                               style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
-                                foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.black),
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.white),
                               ),
                               onPressed: () async {
                                 loading.value = true;
 
                                 if (emailController.text.trim().isEmpty ||
                                     passwordController.text.trim().isEmpty ||
-                                    confirmPasswordController.text.trim().isEmpty) {
+                                    confirmPasswordController.text
+                                        .trim()
+                                        .isEmpty) {
                                   Fluttertoast.showToast(
                                     msg: "Please fill all fields.",
                                     backgroundColor: Colors.blue,
@@ -164,4 +173,3 @@ class _SignupScreenState extends State<SignupScreen> {
     );
   }
 }
-
